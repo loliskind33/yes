@@ -197,12 +197,7 @@ gadmin.load = function(thm,title,btcmds)
             end)
         end)
     end)
-    local waiting = instance('ImageLabel',frame,{
-        Size = udim2(0,50,0,50),
-        Position = udim2(0,0,0,0),
-        BackgroundTransparency = 1,
-        Image = thm.inputAwaitingImage
-    })
+ 
     ts(waiting,{0.6,'Sine'},{
         ImageTransparency = 0.6
     })
