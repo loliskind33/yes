@@ -77,7 +77,7 @@ gadmin.load = function(thm,title,btcmds)
         thm = getgenv().themes.dark
     end
     if not title then
-        title = 'Customizable admin by someoneyoudislike#4194 | discord.gg/fKT4xh8'
+        title = ''
     end
     if not btcmds then 
         btcmds = true
@@ -198,24 +198,7 @@ gadmin.load = function(thm,title,btcmds)
             end)
         end)
     end)
-    local waiting = instance('ImageLabel',frame,{
-        Size = udim2(0,50,0,50),
-        Position = udim2(0,0,0,0),
-        BackgroundTransparency = 1,
-        Image = thm.inputAwaitingImage
-    })
-    ts(waiting,{0.6,'Sine'},{
-        ImageTransparency = 0.6
-    })
-    local uis
-    spawn(function()
-        while true do 
-            ts(waiting,{4,'Linear'},{
-                Rotation = (waiting.Rotation + 100)
-            })
-            wait(4)
-        end
-    end)
+   
     function getplayers(val)
         local players = {}
         val = tostring(val)
