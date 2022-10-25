@@ -68,7 +68,6 @@ getgenv().themes = {
         suggestionTextColor = rgb(14,26,64),
         suggestionXAlignment = Enum.TextXAlignment.Left
     }
-   
 }
 local gadmin = {}
 getgenv().prefix3 = "'"
@@ -82,12 +81,12 @@ gadmin.load = function(thm,title,btcmds)
     if not btcmds then 
         btcmds = true
     end
-local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
+    local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
     local frameopened = false
     local frame = instance('ImageLabel',sgui,{
         Image = c,
         SliceScale = 1,
-        Size = udim2(0,100,0,50),
+        Size = udim2(0,100,0,30),
         Position = udim2(0.5,-50,1,0),
         ImageColor3 = thm.cmdBar
     })
@@ -177,7 +176,7 @@ local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
         TextTransparency = 1
     })
     ts(frame,{0.3,'Sine'},{
-        Size = udim2(0,50,0,50),
+        Size = udim2(0,50,0,30),
         Position = udim2(0.5,-25,0.9,-50),
         SliceScale = 1,
         ImageTransparency = 0.6
@@ -197,6 +196,24 @@ local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
                 end
             end)
         end)
+    end)
+    local waiting = instance('ImageLabel',frame,{
+        Size = udim2(0,30,0,30),
+        Position = udim2(0,0,0,0),
+        BackgroundTransparency = 1,
+        Image = thm.inputAwaitingImage
+    })
+    ts(waiting,{0.6,'Sine'},{
+        ImageTransparency = 0.6
+    })
+    local uis
+    spawn(function()
+        while true do 
+            ts(waiting,{4,'Linear'},{
+                Rotation = (waiting.Rotation + 100)
+            })
+            wait(4)
+        end
     end)
    
     function getplayers(val)
@@ -387,7 +404,7 @@ local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
         Font = thm.suggestionTextFont,
         TextSize = thm.suggestionTextTSize,
         TextXAlignment = Enum.TextXAlignment.Left,
-        Text = 'Suggestions'
+        Text = 'Commands'
     })
     local scrollframe = instance('ImageLabel',suggestions,{
         Image = c,
@@ -618,7 +635,7 @@ local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
     admin.addCommand({name = 'credits',desc = 'someoneyoudislike#4194 | discord.gg/Qde5mWg',callback = function()
         
         local m = instance('Message',workspace)
-        m.Text = 'Made By Joe Bidem'
+        m.Text = 'LL15 Admin Made By Joe Bidem'
         wait(1)
         m:Destroy()
     end})
