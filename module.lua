@@ -75,12 +75,12 @@ gadmin.load = function(thm,title,btcmds)
         thm = getgenv().themes.dark
     end
     if not title then
-        title = ''
+        title = 'Customizable admin by someoneyoudislike#4194 | discord.gg/fKT4xh8'
     end
     if not btcmds then 
         btcmds = true
     end
-     local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
+    local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
     local frameopened = false
     local frame = instance('ImageLabel',sgui,{
         Image = c,
