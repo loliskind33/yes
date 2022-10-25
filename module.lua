@@ -82,12 +82,12 @@ gadmin.load = function(thm,title,btcmds)
     if not btcmds then 
         btcmds = true
     end
-    local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
+local sgui = instance('ScreenGui',game:service('CoreGui'),{Name = 'admin'})
     local frameopened = false
     local frame = instance('ImageLabel',sgui,{
         Image = c,
         SliceScale = 1,
-        Size = udim2(0,100,0,10),
+        Size = udim2(0,100,0,50),
         Position = udim2(0.5,-50,1,0),
         ImageColor3 = thm.cmdBar
     })
@@ -177,7 +177,7 @@ gadmin.load = function(thm,title,btcmds)
         TextTransparency = 1
     })
     ts(frame,{0.3,'Sine'},{
-        Size = udim2(0,50,0,30),
+        Size = udim2(0,50,0,50),
         Position = udim2(0.5,-25,0.9,-50),
         SliceScale = 1,
         ImageTransparency = 0.6
