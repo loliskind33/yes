@@ -176,7 +176,7 @@ gadmin.load = function(thm,title,btcmds)
         TextTransparency = 1
     })
     ts(frame,{0.3,'Sine'},{
-        Size = udim2(0,50,0,30),
+        Size = udim2(0,50,0,50),
         Position = udim2(0.5,-25,0.9,-50),
         SliceScale = 1,
         ImageTransparency = 0.6
@@ -198,7 +198,7 @@ gadmin.load = function(thm,title,btcmds)
         end)
     end)
     local waiting = instance('ImageLabel',frame,{
-        Size = udim2(0,30,0,30),
+        Size = udim2(0,50,0,50),
         Position = udim2(0,0,0,0),
         BackgroundTransparency = 1,
         Image = thm.inputAwaitingImage
