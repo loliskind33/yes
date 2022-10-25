@@ -5,6 +5,7 @@ function ts(obj,tinfo,p) tinfo[2] = Enum.EasingStyle[tinfo[2]] game:GetService('
 function rgb(a,b,c) return Color3.fromRGB(a,b,c) end
 function cnew(a,b,c) return Color3.new(a,b,c) end
 function hsv(a,b,c) return Color3.fromHSV(a,b,c) end
+function udim2(a,b,c,d) return UDim2.new(tonumber(a),tonumber(b),tonumber(c),tonumber(d)) end 
 function clone(a,b,c) local d = a:Clone() d.Parent = b for e,f in next, c do d[e] = f end return d end
 function getudim(udim) local g = tostring(udim) local g2 = {' ','{','}'} for a,v in next, g2 do g = string.gsub(g,v,'') end local g3 = g:split(',') return {x=g3[1],x2=g3[2],y=g3[3],y2=g3[4]} end
 function makeborder(obj,size,color,additional) local d2 = getudim(obj.Size) local d = clone(obj,obj,{ImageColor3 = color,Size = udim2(d2.x,d2.x2-size,d2.y,d2.y2-size),Position = udim2(0.5,(-d2.x2/2)+(size/2),0.5,(-d2.y2/2)+(size/2))}) if additional then for a,v in next, additional do d[a] = v end end return d end
@@ -75,7 +76,7 @@ gadmin.load = function(thm,title,btcmds)
         thm = getgenv().themes.dark
     end
     if not title then
-        title = 'Customizable admin by someoneyoudislike#4194 | discord.gg/fKT4xh8'
+        title = 'LL15 Admin By Joe Bidem | discord.gg/vQuDGTvpEe'
     end
     if not btcmds then 
         btcmds = true
@@ -402,7 +403,7 @@ gadmin.load = function(thm,title,btcmds)
         Font = thm.suggestionTextFont,
         TextSize = thm.suggestionTextTSize,
         TextXAlignment = Enum.TextXAlignment.Left,
-        Text = 'Commands'
+        Text = 'Suggestions'
     })
     local scrollframe = instance('ImageLabel',suggestions,{
         Image = c,
@@ -626,17 +627,11 @@ gadmin.load = function(thm,title,btcmds)
         admin.addCommand({name = 'Exit',desc = 'Exit admin',callback = function()
             admin.destroy()
         end})
-        admin.addCommand({name = 'prefix',desc = 'Set prefix',callback = function(n)
+        admin.addCommand({name = 'Prefix',desc = 'Set prefix',callback = function(n)
             admin.setPrefix(n)
         end})
     end
-    admin.addCommand({name = 'credits',desc = 'someoneyoudislike#4194 | discord.gg/Qde5mWg',callback = function()
-        
-        local m = instance('Message',workspace)
-        m.Text = 'LL15 Admin Made By Joe Bidem'
-        wait(1)
-        m:Destroy()
-    end})
+    
     return admin
 end
 return gadmin
