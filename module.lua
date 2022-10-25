@@ -107,7 +107,7 @@ gadmin.load = function(thm,title,btcmds)
             wait(0.1)
             if not frameopened then
                 ts(infoframe,{0.3,'Sine'},{
-                    Size = udim2(0,0,0,100)
+                    Size = udim2(0,0,0,30)
                 })
             end
         end
